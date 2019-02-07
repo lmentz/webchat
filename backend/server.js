@@ -1,5 +1,5 @@
 // server.js
-const app = require('./app');
+const app = require('./src/app');
 const port = process.env.PORT || 3000;
 // port is 3000 unless defined by environment variable
 const host = process.env.HOST || '0.0.0.0';

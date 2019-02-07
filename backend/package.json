@@ -4,7 +4,8 @@
   "description": "RESTful API based chat server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "PORT=3000 node server.js"
   },
   "author": "",
   "license": "ISC",
