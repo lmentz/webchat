@@ -52,8 +52,8 @@ router.post('/chat', (req, res) => {
 });
 
 // Get specific message
-router.get('/chat/:msgid', (req, res) => {
-    let msgId = req.params.msgid;
+router.get('/chat/:msgId', (req, res) => {
+    let msgId = req.params.msgId;
     if (msgId >= cur_id) {
         res.sendStatus(404);
     } else {
