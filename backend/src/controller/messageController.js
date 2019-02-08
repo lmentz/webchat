@@ -7,20 +7,37 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 var Message = require('../model/messageModel');
 
-var cur_id = -1;
+var cur_id = 0;
 var messages = [];
 
 // Synchronize to get current message ID (to read from there on)
 router.get('/chat/sync', (req, res) => {
-    res.end('' + cur_id + ''); // TODO make sure it works
+    res.end('' + cur_id);
 });
 
 // Creates new message
 router.post('/chat/new', (req, res) => {
     let new_msg = {
-        id = cur_id,
-        author = req.body.author,
-        text = req.body.text
+        id: cur_id,
+        author: req.body.author,
+        text: req.body.text
     };
     cur_id = messages.push(new_msg);
+    res.status(200).send('' + cur_id);
 });
+
+// Get specific message
+router.get('/chat/get/:msgId', (req, res) => {
+    let msgId = req.params.msgId;
+    if (msgId >= cur_id) {
+        res.sendStatus(404);
+        return;
+    }
+    res.status(200).json({
+        id: messages[msgId].id,
+        author: messages[msgId].author,
+        text: messages[msgId].text
+    });
+});
+
+module.exports = router;
