@@ -1,4 +1,4 @@
-// chat.js
+// messageModel.js
 const mongoose = require('mongoose');
 var messageSchema = new mongoose.Schema({
     id: Number,
