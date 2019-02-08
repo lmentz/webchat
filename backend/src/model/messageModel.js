@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 var messageSchema = new mongoose.Schema({
     id: Number,
     author: String,
-    message: String
+    message: String,
 });
 mongoose.model('Message', messageSchema);
 
