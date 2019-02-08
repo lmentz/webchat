@@ -12,7 +12,7 @@ var messages = [];
 
 // Synchronize to get current message ID (to read from there on)
 router.get('/chat/sync', (req, res) => {
-    res.end('' + cur_id);
+    res.end('' + (cur_id - 1));
 });
 
 // Creates new message
