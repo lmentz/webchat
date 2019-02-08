@@ -20,7 +20,7 @@ router.post('/chat/new', (req, res) => {
     let new_msg = {
         id: cur_id,
         author: req.body.author,
-        text: req.body.text
+        message: req.body.message
     };
     cur_id = messages.push(new_msg);
     res.status(200).send('' + cur_id);
@@ -36,7 +36,7 @@ router.get('/chat/get/:msgId', (req, res) => {
     res.status(200).json({
         id: messages[msgId].id,
         author: messages[msgId].author,
-        text: messages[msgId].text
+        message: messages[msgId].message
     });
 });
 
