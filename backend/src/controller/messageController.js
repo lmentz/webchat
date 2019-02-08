@@ -52,17 +52,19 @@ router.post('/chat', (req, res) => {
 });
 
 // Get specific message
-router.get('/chat/:msgId', (req, res) => {
-    let msgId = req.params.msgId;
+router.get('/chat/:msgid', (req, res) => {
+    let msgId = req.params.msgid;
     if (msgId >= cur_id) {
         res.sendStatus(404);
     } else {
-        let msg;
-        Message.find({id: msgId}, (err, obj) => {
+        Message.findOne({id: msgId}, (err, obj) => {
             if (err) {
                 res.status(500).send('Server error');
             } else {
-                msg = obj;
+                let msg = {
+                    author: obj.author,
+                    message: obj.message
+                };
                 res.status(200).json(msg);
             }
         });
