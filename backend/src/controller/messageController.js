@@ -27,7 +27,7 @@ router.get('/chat', (req, res) => {
                 console.log("cur_id is different from Message.count(). Something might be wrong");
                 cur_id = count;
             }
-            res.status(200).send('' + (cur_id - 1)); // Usado porque acredita-se que o cur_id e o store estão sincronizados.
+            res.status(200).send('' + (cur_id)); // Usado porque acredita-se que o cur_id e o store estão sincronizados.
         }
     });
 });
@@ -54,7 +54,7 @@ router.post('/chat', (req, res) => {
 // Get specific message
 router.get('/chat/:msgId', (req, res) => {
     let msgId = req.params.msgId;
-    if (msgId >= cur_id) {
+    if (msgId >= cur_id || msgId < 0) {
         res.sendStatus(404);
     } else {
         Message.findOne({id: msgId}, (err, obj) => {

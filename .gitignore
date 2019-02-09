@@ -60,5 +60,27 @@ typings/
 # next.js build output
 .next
 
-# dbConfig.json, contains mongodb connection uri
+
+## .gitignore from webchat-frontend
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+
+## Personal config files
 dbConfig.json
+apiendpoint.json
+vue.config.js

@@ -1,4 +1,4 @@
-# webchat-frontend
+# Front-end: Vue.JS
 
 ## Project setup
 ```
